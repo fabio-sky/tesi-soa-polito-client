@@ -37,11 +37,11 @@ namespace TesiSoaClient
             Api.ResponseData response = await Api.TestConnection();
             if (response.result)
             {
-                MessageBox.Show(response.message, "🙂", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(response.message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                MessageBox.Show(response.message, "☹️", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
