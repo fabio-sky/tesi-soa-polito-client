@@ -1,6 +1,6 @@
 ﻿namespace TesiSoaClient
 {
-    partial class FormGlobalSettings
+    partial class FormOculusIp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGlobalSettings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOculusIp));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblIpError = new System.Windows.Forms.Label();
             this.btnConfirmIp = new System.Windows.Forms.Button();
-            this.btnTestIp = new System.Windows.Forms.Button();
             this.txtIp4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIp3 = new System.Windows.Forms.TextBox();
@@ -40,14 +39,16 @@
             this.txtIp2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIp1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblIpError);
             this.groupBox1.Controls.Add(this.btnConfirmIp);
-            this.groupBox1.Controls.Add(this.btnTestIp);
             this.groupBox1.Controls.Add(this.txtIp4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtIp3);
@@ -56,12 +57,12 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtIp1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 102);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(374, 144);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "IP Oculus";
+            this.groupBox1.Text = "IP Address";
             // 
             // lblIpError
             // 
@@ -77,31 +78,20 @@
             // 
             // btnConfirmIp
             // 
-            this.btnConfirmIp.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnConfirmIp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(128)))));
             this.btnConfirmIp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnConfirmIp.FlatAppearance.BorderSize = 0;
             this.btnConfirmIp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmIp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnConfirmIp.Location = new System.Drawing.Point(104, 97);
+            this.btnConfirmIp.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnConfirmIp.Location = new System.Drawing.Point(61, 95);
+            this.btnConfirmIp.MaximumSize = new System.Drawing.Size(250, 40);
+            this.btnConfirmIp.MinimumSize = new System.Drawing.Size(250, 40);
             this.btnConfirmIp.Name = "btnConfirmIp";
-            this.btnConfirmIp.Size = new System.Drawing.Size(256, 41);
+            this.btnConfirmIp.Size = new System.Drawing.Size(250, 40);
             this.btnConfirmIp.TabIndex = 12;
             this.btnConfirmIp.Text = "CONFIRM";
             this.btnConfirmIp.UseVisualStyleBackColor = false;
             this.btnConfirmIp.Click += new System.EventHandler(this.btnConfirmIp_Click);
-            // 
-            // btnTestIp
-            // 
-            this.btnTestIp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(217)))), ((int)(((byte)(209)))));
-            this.btnTestIp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnTestIp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTestIp.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTestIp.Location = new System.Drawing.Point(11, 97);
-            this.btnTestIp.Name = "btnTestIp";
-            this.btnTestIp.Size = new System.Drawing.Size(87, 41);
-            this.btnTestIp.TabIndex = 11;
-            this.btnTestIp.Text = "TEST";
-            this.btnTestIp.UseVisualStyleBackColor = false;
-            this.btnTestIp.Click += new System.EventHandler(this.btnTestIp_Click);
             // 
             // txtIp4
             // 
@@ -182,21 +172,49 @@
             this.txtIp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtIp1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIp1_KeyPress);
             // 
-            // FormGlobalSettings
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(134, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(226, 68);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Insert the IP address of your headset.\r\nYou can find it in:\r\n - WiFi settings of " +
+    "the headset\r\n - Displaied in the virtual world";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(29, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // FormOculusIp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 168);
+            this.ClientSize = new System.Drawing.Size(398, 258);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormGlobalSettings";
+            this.Name = "FormOculusIp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GlobalSettings";
+            this.Text = "Connect to Headset";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -211,7 +229,8 @@
         private Label label1;
         private TextBox txtIp1;
         private Button btnConfirmIp;
-        private Button btnTestIp;
         private Label lblIpError;
+        private Label label4;
+        private PictureBox pictureBox1;
     }
 }

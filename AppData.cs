@@ -36,6 +36,12 @@ namespace TesiSoaClient
             }
         }
 
+        private SessionInfo? _actualSession;
+        public SessionInfo? ActualSession
+        {
+            get { return _actualSession; }
+            set { _actualSession = value; }
+        }
 
         private HttpClient? _httpClient;
         public HttpClient Client

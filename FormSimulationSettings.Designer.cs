@@ -40,10 +40,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnUpdateDelay = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnUpdateCamera = new System.Windows.Forms.Button();
+            this.cmbCamera = new System.Windows.Forms.ComboBox();
             this.groupBoolean.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDelay)).BeginInit();
             this.groupDelay.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUpdateBooleans
@@ -52,7 +57,7 @@
             this.btnUpdateBooleans.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnUpdateBooleans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateBooleans.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdateBooleans.Location = new System.Drawing.Point(6, 172);
+            this.btnUpdateBooleans.Location = new System.Drawing.Point(6, 110);
             this.btnUpdateBooleans.Name = "btnUpdateBooleans";
             this.btnUpdateBooleans.Size = new System.Drawing.Size(300, 41);
             this.btnUpdateBooleans.TabIndex = 0;
@@ -73,7 +78,7 @@
             "Third Person View"});
             this.chkListBoolParams.Location = new System.Drawing.Point(6, 24);
             this.chkListBoolParams.Name = "chkListBoolParams";
-            this.chkListBoolParams.Size = new System.Drawing.Size(300, 120);
+            this.chkListBoolParams.Size = new System.Drawing.Size(300, 80);
             this.chkListBoolParams.TabIndex = 1;
             // 
             // lblDate
@@ -119,7 +124,7 @@
             this.groupBoolean.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoolean.Location = new System.Drawing.Point(12, 57);
             this.groupBoolean.Name = "groupBoolean";
-            this.groupBoolean.Size = new System.Drawing.Size(313, 219);
+            this.groupBoolean.Size = new System.Drawing.Size(313, 156);
             this.groupBoolean.TabIndex = 7;
             this.groupBoolean.TabStop = false;
             this.groupBoolean.Text = "Movements";
@@ -130,14 +135,14 @@
             this.txtDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDelay.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDelay.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDelay.Location = new System.Drawing.Point(174, 42);
+            this.txtDelay.Location = new System.Drawing.Point(118, 42);
             this.txtDelay.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.txtDelay.Name = "txtDelay";
-            this.txtDelay.Size = new System.Drawing.Size(132, 25);
+            this.txtDelay.Size = new System.Drawing.Size(188, 25);
             this.txtDelay.TabIndex = 8;
             // 
             // groupDelay
@@ -146,7 +151,7 @@
             this.groupDelay.Controls.Add(this.label2);
             this.groupDelay.Controls.Add(this.btnUpdateDelay);
             this.groupDelay.Controls.Add(this.txtDelay);
-            this.groupDelay.Location = new System.Drawing.Point(12, 286);
+            this.groupDelay.Location = new System.Drawing.Point(12, 360);
             this.groupDelay.Name = "groupDelay";
             this.groupDelay.Size = new System.Drawing.Size(313, 135);
             this.groupDelay.TabIndex = 9;
@@ -189,18 +194,66 @@
             this.panel1.Size = new System.Drawing.Size(342, 52);
             this.panel1.TabIndex = 10;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.cmbCamera);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.BtnUpdateCamera);
+            this.groupBox1.Location = new System.Drawing.Point(12, 219);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(313, 135);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Camera View";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Camera";
+            // 
+            // BtnUpdateCamera
+            // 
+            this.BtnUpdateCamera.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BtnUpdateCamera.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnUpdateCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUpdateCamera.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnUpdateCamera.Location = new System.Drawing.Point(6, 88);
+            this.BtnUpdateCamera.Name = "BtnUpdateCamera";
+            this.BtnUpdateCamera.Size = new System.Drawing.Size(300, 41);
+            this.BtnUpdateCamera.TabIndex = 2;
+            this.BtnUpdateCamera.Text = "UPDATE";
+            this.BtnUpdateCamera.UseVisualStyleBackColor = false;
+            this.BtnUpdateCamera.Click += new System.EventHandler(this.BtnUpdateCamera_Click);
+            // 
+            // cmbCamera
+            // 
+            this.cmbCamera.FormattingEnabled = true;
+            this.cmbCamera.Items.AddRange(new object[] {
+            "FIRST PERSON",
+            "FRONT",
+            "FLOOR"});
+            this.cmbCamera.Location = new System.Drawing.Point(123, 41);
+            this.cmbCamera.Name = "cmbCamera";
+            this.cmbCamera.Size = new System.Drawing.Size(183, 25);
+            this.cmbCamera.TabIndex = 10;
+            // 
             // FormSimulationSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(342, 433);
+            this.ClientSize = new System.Drawing.Size(342, 505);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupDelay);
             this.Controls.Add(this.groupBoolean);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(358, 474);
             this.MinimumSize = new System.Drawing.Size(358, 474);
             this.Name = "FormSimulationSetting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -211,6 +264,8 @@
             this.groupDelay.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +283,9 @@
         private Button btnUpdateDelay;
         private Label label2;
         private Panel panel1;
+        private GroupBox groupBox1;
+        private ComboBox cmbCamera;
+        private Label label1;
+        private Button BtnUpdateCamera;
     }
 }

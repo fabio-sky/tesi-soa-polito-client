@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TesiSoaClient.Api;
 
 namespace TesiSoaClient
 {
-    public partial class FormGlobalSettings : Form
+    public partial class FormOculusIp : Form
     {
-        public FormGlobalSettings()
+        public FormOculusIp()
         {
             InitializeComponent();
 
@@ -30,19 +31,6 @@ namespace TesiSoaClient
 
             }
             
-        }
-
-        private static async Task HandleTestConnection()
-        {
-            Api.ResponseData response = await Api.TestConnection();
-            if (response.result)
-            {
-                MessageBox.Show(response.message, "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            else
-            {
-                MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private bool HandleUpdateIp()
@@ -78,14 +66,36 @@ namespace TesiSoaClient
             return true;
         }
 
-        private void btnTestIp_Click(object sender, EventArgs e)
+        private async Task HandleNext()
         {
-            HandleTestConnection();
+
+
+
+            /*
+
+            if (HandleUpdateIp())
+            {
+                Api.ResponseData response = await Api.TestConnection();
+
+                if (response.result)
+                {
+                    Form formSession = new FormNewSession();
+
+                    formSession.ShowDialog();
+                }
+                else {
+                    MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            */
+
+            this.Close();
         }
 
         private void btnConfirmIp_Click(object sender, EventArgs e)
         {
-            HandleUpdateIp();
+            HandleNext();
+
         }
 
         private void txtIp1_KeyPress(object sender, KeyPressEventArgs e)
