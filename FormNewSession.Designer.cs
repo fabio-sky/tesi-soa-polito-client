@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewSession));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtSessionName = new System.Windows.Forms.TextBox();
-            this.LblNameError = new System.Windows.Forms.Label();
+            this.BtnConfirm = new System.Windows.Forms.Button();
             this.TxtSessionDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BtnConfirm = new System.Windows.Forms.Button();
+            this.LblNameError = new System.Windows.Forms.Label();
+            this.TxtSessionName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,49 +55,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Session Name (*)";
-            // 
-            // TxtSessionName
-            // 
-            this.TxtSessionName.Location = new System.Drawing.Point(6, 50);
-            this.TxtSessionName.Name = "TxtSessionName";
-            this.TxtSessionName.Size = new System.Drawing.Size(310, 25);
-            this.TxtSessionName.TabIndex = 1;
-            // 
-            // LblNameError
-            // 
-            this.LblNameError.AutoSize = true;
-            this.LblNameError.ForeColor = System.Drawing.Color.IndianRed;
-            this.LblNameError.Location = new System.Drawing.Point(213, 78);
-            this.LblNameError.Name = "LblNameError";
-            this.LblNameError.Size = new System.Drawing.Size(103, 17);
-            this.LblNameError.TabIndex = 2;
-            this.LblNameError.Text = "Campo richiesto";
-            // 
-            // TxtSessionDesc
-            // 
-            this.TxtSessionDesc.Location = new System.Drawing.Point(6, 118);
-            this.TxtSessionDesc.Multiline = true;
-            this.TxtSessionDesc.Name = "TxtSessionDesc";
-            this.TxtSessionDesc.Size = new System.Drawing.Size(310, 78);
-            this.TxtSessionDesc.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Session Description";
-            // 
             // BtnConfirm
             // 
             this.BtnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(128)))));
@@ -115,6 +72,51 @@
             this.BtnConfirm.UseVisualStyleBackColor = false;
             this.BtnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
+            // TxtSessionDesc
+            // 
+            this.TxtSessionDesc.Location = new System.Drawing.Point(6, 118);
+            this.TxtSessionDesc.Multiline = true;
+            this.TxtSessionDesc.Name = "TxtSessionDesc";
+            this.TxtSessionDesc.Size = new System.Drawing.Size(310, 78);
+            this.TxtSessionDesc.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(6, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Session Description";
+            // 
+            // LblNameError
+            // 
+            this.LblNameError.AutoSize = true;
+            this.LblNameError.ForeColor = System.Drawing.Color.IndianRed;
+            this.LblNameError.Location = new System.Drawing.Point(213, 78);
+            this.LblNameError.Name = "LblNameError";
+            this.LblNameError.Size = new System.Drawing.Size(103, 17);
+            this.LblNameError.TabIndex = 2;
+            this.LblNameError.Text = "Campo richiesto";
+            // 
+            // TxtSessionName
+            // 
+            this.TxtSessionName.Location = new System.Drawing.Point(6, 50);
+            this.TxtSessionName.Name = "TxtSessionName";
+            this.TxtSessionName.Size = new System.Drawing.Size(310, 25);
+            this.TxtSessionName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Session Name (*)";
+            // 
             // label3
             // 
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -122,8 +124,8 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(323, 79);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Insert the NAME and the DESCRIPTION of the new session.\r\n\r\nAn unique identifier w" +
-    "ill be automatically created.";
+            this.label3.Text = "Insert the NAME and the DESCRIPTION of the new session.\r\nAn unique identifier wil" +
+    "l be automatically created.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormNewSession

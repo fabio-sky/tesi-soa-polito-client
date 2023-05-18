@@ -22,6 +22,21 @@ namespace TesiSoaClient
             public string message;
         }
 
+        public struct SessionData
+        {
+            public string id;
+            public string name;
+            public string description;
+            public string created_at;
+        }
+
+        public struct ResponseDataWithLPayload<T>
+        {
+            public bool result;
+            public string message;
+            public T[] data;
+        }
+
         private struct UpdateDelayData
         {
             public int delay;
@@ -170,6 +185,82 @@ namespace TesiSoaClient
 
                 string json = await resp.Content.ReadAsStringAsync();
                 retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        public static async Task<ResponseData> SetSession(SessionInfo data)
+        {
+            ResponseData retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                StringContent content = new(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+                HttpResponseMessage resp = await AppData.Instance.Client.PostAsync("session", content);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        public static async Task<ResponseDataWithLPayload<SessionData>> GetSession()
+        {
+            ResponseDataWithLPayload<SessionData> retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+                
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("session");
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
             }
             catch (HttpRequestException error)
             {

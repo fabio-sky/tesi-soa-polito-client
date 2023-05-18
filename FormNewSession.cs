@@ -20,15 +20,19 @@ namespace TesiSoaClient
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-            SessionInfo session = new SessionInfo();
-            session.Name = "Fabio";
-            session.Description = "Sessione di Test";
 
-            
+            if(TxtSessionName.Text.Trim().Length == 0)
+            {
+                LblNameError.Visible = true;
+                return;
+            }
+
+            SessionInfo session = new();
+            session.Name = TxtSessionName.Text.Trim();
+            session.Description = TxtSessionDesc.Text.Trim();
 
             AppData.Instance.ActualSession = session;
-
-            MessageBox.Show(JsonConvert.SerializeObject(AppData.Instance.ActualSession));
+            Api.SetSession(session);
         }
     }
 }

@@ -35,6 +35,7 @@
             this.BtnSettings = new System.Windows.Forms.Button();
             this.BtnNewSession = new System.Windows.Forms.Button();
             this.BtnSync = new System.Windows.Forms.Button();
+            this.FlowLayoutSession = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.panel1.Controls.Add(this.BtnSettings);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 55);
+            this.panel1.Size = new System.Drawing.Size(752, 55);
             this.panel1.TabIndex = 11;
             // 
             // lblDate
@@ -80,7 +81,7 @@
             this.BtnSettings.FlatAppearance.BorderSize = 0;
             this.BtnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSettings.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnSettings.Location = new System.Drawing.Point(892, 5);
+            this.BtnSettings.Location = new System.Drawing.Point(684, 7);
             this.BtnSettings.Name = "BtnSettings";
             this.BtnSettings.Size = new System.Drawing.Size(45, 42);
             this.BtnSettings.TabIndex = 3;
@@ -114,12 +115,23 @@
             this.BtnSync.Size = new System.Drawing.Size(34, 34);
             this.BtnSync.TabIndex = 13;
             this.BtnSync.UseVisualStyleBackColor = false;
+            this.BtnSync.Click += new System.EventHandler(this.BtnSync_Click);
+            // 
+            // FlowLayoutSession
+            // 
+            this.FlowLayoutSession.AutoScroll = true;
+            this.FlowLayoutSession.Location = new System.Drawing.Point(12, 110);
+            this.FlowLayoutSession.Name = "FlowLayoutSession";
+            this.FlowLayoutSession.Size = new System.Drawing.Size(731, 572);
+            this.FlowLayoutSession.TabIndex = 14;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 694);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(755, 694);
+            this.Controls.Add(this.FlowLayoutSession);
             this.Controls.Add(this.BtnSync);
             this.Controls.Add(this.BtnNewSession);
             this.Controls.Add(this.panel1);
@@ -145,5 +157,6 @@
         private Button BtnSettings;
         private Button BtnNewSession;
         private Button BtnSync;
+        private FlowLayoutPanel FlowLayoutSession;
     }
 }

@@ -69,27 +69,18 @@ namespace TesiSoaClient
         private async Task HandleNext()
         {
 
-
-
-            /*
-
             if (HandleUpdateIp())
             {
                 Api.ResponseData response = await Api.TestConnection();
 
                 if (response.result)
                 {
-                    Form formSession = new FormNewSession();
-
-                    formSession.ShowDialog();
+                    this.Close();
                 }
                 else {
                     MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            */
-
-            this.Close();
+            }   
         }
 
         private void btnConfirmIp_Click(object sender, EventArgs e)
