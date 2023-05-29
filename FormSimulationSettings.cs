@@ -5,6 +5,9 @@
         public FormSimulationSetting()
         {
             InitializeComponent();
+
+            LblSessionId.Text = AppData.Instance.ActualSession?.Identifier;
+            LblSessionName.Text = AppData.Instance.ActualSession?.Name;
         }
 
 
@@ -49,6 +52,18 @@
             
         }
 
+        private async void HandleEndSession()
+        {
+
+            Api.ResponseData resp = await Api.EndSession();
+
+            if (!resp.result)
+            {
+                MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else this.Close();
+        }
+
         private void GoToSettings()
         {
             var form = new FormOculusIp();
@@ -74,6 +89,26 @@
         private void BtnUpdateCamera_Click(object sender, EventArgs e)
         {
            HandleUpdateCamera();
+        }
+
+        private void BtnEndSession_Click(object sender, EventArgs e)
+        {
+            HandleEndSession();
+        }
+
+        private void FormSimulationSetting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //HandleEndSession();
+        }
+
+        private void BtnStartRecord_Click(object sender, EventArgs e)
+        {
+            Api.StartHandLog();
+        }
+
+        private void BtnStopRecord_Click(object sender, EventArgs e)
+        {
+            Api.StopHandLog();
         }
     }
 }

@@ -24,7 +24,8 @@ namespace TesiSoaClient
             _name = string.Empty;
             _description = string.Empty;
             _createdAt = DateTime.Now;
-            _identifier = String.Concat(_createdAt.Year, _createdAt.Month, _createdAt.Day, "-", new Random().Next());
+            _identifier = String.Concat("session_", _createdAt.ToString("yyyyMMdd_HHmmss"));
+            //_identifier =  String.Concat("session_", _createdAt.Year, _createdAt.Month, _createdAt.Day, "_",_createdAt.Hour, _createdAt.Minute, _createdAt.Second);
         }
     }
 }

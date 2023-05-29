@@ -46,7 +46,7 @@ namespace TesiSoaClient
         public DateTime CreatedAt
         {
             get { return _createdAt; }
-            set { _createdAt = value; LblDate.Text = value.ToString(); }
+            set { _createdAt = value; LblDate.Text = value.ToString("dddd, dd MMM yyyy | HH:mm:ss"); }
         }
 
         private Action<string> _btnDownloadOnPress;

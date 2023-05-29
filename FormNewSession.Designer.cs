@@ -99,6 +99,7 @@
             this.LblNameError.Size = new System.Drawing.Size(103, 17);
             this.LblNameError.TabIndex = 2;
             this.LblNameError.Text = "Campo richiesto";
+            this.LblNameError.Visible = false;
             // 
             // TxtSessionName
             // 
@@ -139,6 +140,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNewSession";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Session";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

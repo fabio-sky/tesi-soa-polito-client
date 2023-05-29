@@ -18,6 +18,23 @@ namespace TesiSoaClient
             InitializeComponent();
         }
 
+        private async void HandleCreateNewSession()
+        {
+            SessionInfo session = new()
+            {
+                Name = TxtSessionName.Text.Trim(),
+                Description = TxtSessionDesc.Text.Trim()
+            };
+
+            AppData.Instance.ActualSession = session;
+            Api.ResponseData resp = await Api.SetSession(session);
+
+            if (resp.result)
+            {
+                this.Close();
+            }
+        }
+
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
 
@@ -27,12 +44,8 @@ namespace TesiSoaClient
                 return;
             }
 
-            SessionInfo session = new();
-            session.Name = TxtSessionName.Text.Trim();
-            session.Description = TxtSessionDesc.Text.Trim();
-
-            AppData.Instance.ActualSession = session;
-            Api.SetSession(session);
+            HandleCreateNewSession();
+            
         }
     }
 }

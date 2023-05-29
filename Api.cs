@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
@@ -11,11 +12,14 @@ namespace TesiSoaClient
 {
     internal class Api
     {
+        #region Error messages
         private record class ApiErrorMessages
         {
             public const string IP_NOT_SET = "IP address is not set";
         }
+        #endregion
 
+        #region Request and response data structures
         public struct ResponseData
         {
             public bool result;
@@ -24,10 +28,10 @@ namespace TesiSoaClient
 
         public struct SessionData
         {
-            public string id;
-            public string name;
-            public string description;
-            public string created_at;
+            public string Name;
+            public string Description;
+            public string Identifier;
+            public DateTime CreatedAt;
         }
 
         public struct ResponseDataWithLPayload<T>
@@ -54,6 +58,9 @@ namespace TesiSoaClient
             public string camera;
         }
 
+        #endregion
+
+        #region Methodes to send requests
         public static async Task<ResponseData> TestConnection()
         {
             ResponseData retData = new()
@@ -244,6 +251,43 @@ namespace TesiSoaClient
             return retData;
         }
 
+        public static async Task<ResponseData> EndSession()
+        {
+            ResponseData retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.PostAsync("session/end", null);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
         public static async Task<ResponseDataWithLPayload<SessionData>> GetSession()
         {
             ResponseDataWithLPayload<SessionData> retData = new()
@@ -257,7 +301,46 @@ namespace TesiSoaClient
 
             try
             {
-                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("session");
+                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("sessions-list");
+
+                string json = await resp.Content.ReadAsStringAsync();
+                Debug.WriteLine(json);
+                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        public static async Task<ResponseDataWithLPayload<SessionData>> StartHandLog()
+        {
+            ResponseDataWithLPayload<SessionData> retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.PutAsync("log/hand/start", null);
 
                 string json = await resp.Content.ReadAsStringAsync();
                 retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
@@ -281,5 +364,83 @@ namespace TesiSoaClient
 
             return retData;
         }
+
+        public static async Task<ResponseDataWithLPayload<SessionData>> StopHandLog()
+        {
+            ResponseDataWithLPayload<SessionData> retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.PutAsync("log/hand/stop", null);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        public static async Task<ResponseData> DeleteSession(string sessionId)
+        {
+            ResponseData retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.DeleteAsync("session?sessionId=" + sessionId);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        #endregion
     }
 }

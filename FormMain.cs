@@ -29,13 +29,17 @@ namespace TesiSoaClient
                 return;
             }
 
-            foreach(Api.SessionData session in response.data)
+
+            FlowLayoutSession.Controls.Clear();
+
+            foreach (Api.SessionData session in response.data)
             {
                 SessionItem item = new()
                 {
-                    Identifier = session.id,
-                    SessionName = session.name,
-                    Description = session.description,
+                    Identifier = session.Identifier,
+                    SessionName = session.Name,
+                    Description = session.Description,
+                    CreatedAt = session.CreatedAt,
                     BtnDownloadOnPress = HandleDownloadSession,
                     BtnDeleteOnPress = HandleDeleteSession
                 };
@@ -49,20 +53,51 @@ namespace TesiSoaClient
             MessageBox.Show(id);
         }
 
-        private void HandleDeleteSession(string id)
+        private async void HandleDeleteSession(string id)
         {
-            MessageBox.Show(id);
+            Api.ResponseData resp = await Api.DeleteSession(id);
+
+            if(!resp.result)
+            {
+                MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            GetSessions();
+        }
+
+        /// <summary>
+        /// When formOculusIp is closed
+        /// </summary>
+        private void FormOculusIp_Closed(object? sender, FormClosedEventArgs e)
+        {
+            GetSessions();
+        }
+
+        /// <summary>
+        /// When formSession is closed
+        /// </summary>
+        private void FormSession_Closed(object? sender, FormClosedEventArgs e)
+        {
+            if(AppData.Instance.ActualSession != null)
+            {
+                FormSimulationSetting frmSimSettings = new();
+                frmSimSettings.ShowDialog();
+            }
+           
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
             Form formIp = new FormOculusIp();
+            formIp.FormClosed += new FormClosedEventHandler(FormOculusIp_Closed);
             formIp.ShowDialog();
         }
 
         private void BtnNewSession_Click(object sender, EventArgs e)
         {
             Form formSession = new FormNewSession();
+            formSession.FormClosed += new FormClosedEventHandler(FormSession_Closed);
             formSession.ShowDialog();
         }
 
