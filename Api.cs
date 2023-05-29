@@ -441,6 +441,44 @@ namespace TesiSoaClient
             return retData;
         }
 
+        public static async Task<ResponseData> GetSessionLogs(string sessionId)
+        {
+            ResponseData retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("session/log?sessionId=" + sessionId + "&sendTo=" + System.Environment.MachineName);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
         #endregion
     }
 }

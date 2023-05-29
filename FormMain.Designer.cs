@@ -36,6 +36,8 @@
             this.BtnNewSession = new System.Windows.Forms.Button();
             this.BtnSync = new System.Windows.Forms.Button();
             this.FlowLayoutSession = new System.Windows.Forms.FlowLayoutPanel();
+            this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.LblDownload = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,12 +127,26 @@
             this.FlowLayoutSession.Size = new System.Drawing.Size(731, 572);
             this.FlowLayoutSession.TabIndex = 14;
             // 
+            // LblDownload
+            // 
+            this.LblDownload.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.LblDownload.AutoSize = true;
+            this.LblDownload.Font = new System.Drawing.Font("Segoe UI", 8.830189F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.LblDownload.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.LblDownload.Location = new System.Drawing.Point(519, 79);
+            this.LblDownload.Name = "LblDownload";
+            this.LblDownload.Size = new System.Drawing.Size(224, 17);
+            this.LblDownload.TabIndex = 15;
+            this.LblDownload.Text = "Downloading session_!23123_DATA";
+            this.LblDownload.Visible = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(755, 694);
+            this.Controls.Add(this.LblDownload);
             this.Controls.Add(this.FlowLayoutSession);
             this.Controls.Add(this.BtnSync);
             this.Controls.Add(this.BtnNewSession);
@@ -146,6 +162,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -158,5 +175,7 @@
         private Button BtnNewSession;
         private Button BtnSync;
         private FlowLayoutPanel FlowLayoutSession;
+        private FolderBrowserDialog folderBrowser;
+        private Label LblDownload;
     }
 }

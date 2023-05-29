@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,7 +52,65 @@ namespace TesiSoaClient
 
         private void HandleDownloadSession(string id)
         {
-            MessageBox.Show(id);
+
+            LblDownload.Text = "Downloading " + id + " data...";
+            LblDownload.Visible = true;
+
+            try
+            {
+                byte[] buffer;
+
+                if (folderBrowser.ShowDialog() == DialogResult.OK)
+                {
+
+                    string selectedPath = folderBrowser.SelectedPath;
+
+                    Api.GetSessionLogs(id);
+
+                    //Listen for file dimension
+                    TcpListener listenerInfo = new(5050);
+                    listenerInfo.Server.ReceiveTimeout = 5000;
+                    listenerInfo.Start();
+
+                    TcpClient client = listenerInfo.AcceptTcpClient();
+                    StreamReader sInfo = new(client.GetStream());
+
+                    string rawFileSize = sInfo.ReadToEnd();
+
+                    int fileSize = int.Parse(rawFileSize);
+
+                    listenerInfo.Stop();
+                    client.Close();
+
+                    //Listen for file data
+                    TcpListener listenerFile = new(5055);
+                    listenerFile.Server.ReceiveTimeout = 5000;
+                    listenerFile.Start();
+
+                    client = listenerFile.AcceptTcpClient();
+
+                    Stream sFile = client.GetStream();
+
+                    buffer = new byte[fileSize];
+
+                    sFile.Read(buffer, 0, fileSize);
+
+                    File.WriteAllBytes(Path.Combine(selectedPath, id + "_DATA.zip"), buffer);
+
+                    listenerFile.Stop();
+                    client.Close();
+
+                    Process.Start("explorer.exe", selectedPath);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Download session", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            LblDownload.Visible = false;
+
         }
 
         private async void HandleDeleteSession(string id)
@@ -59,7 +119,7 @@ namespace TesiSoaClient
 
             if(!resp.result)
             {
-                MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(resp.message, "Delete session", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
