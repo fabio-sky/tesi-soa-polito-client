@@ -50,12 +50,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.BtnStopRecord = new System.Windows.Forms.Button();
             this.BtnStartRecord = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnLeft = new System.Windows.Forms.Button();
+            this.BtnRight = new System.Windows.Forms.Button();
+            this.BtnDown = new System.Windows.Forms.Button();
+            this.BtnUp = new System.Windows.Forms.Button();
             this.groupBoolean.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDelay)).BeginInit();
             this.groupDelay.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUpdateBooleans
@@ -331,12 +337,90 @@
             this.BtnStartRecord.UseVisualStyleBackColor = false;
             this.BtnStartRecord.Click += new System.EventHandler(this.BtnStartRecord_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.BtnLeft);
+            this.groupBox3.Controls.Add(this.BtnRight);
+            this.groupBox3.Controls.Add(this.BtnDown);
+            this.groupBox3.Controls.Add(this.BtnUp);
+            this.groupBox3.Location = new System.Drawing.Point(12, 393);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(409, 110);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Camera position";
+            // 
+            // BtnLeft
+            // 
+            this.BtnLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.BtnLeft.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnLeft.FlatAppearance.BorderSize = 0;
+            this.BtnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLeft.ForeColor = System.Drawing.Color.White;
+            this.BtnLeft.Location = new System.Drawing.Point(86, 51);
+            this.BtnLeft.Name = "BtnLeft";
+            this.BtnLeft.Size = new System.Drawing.Size(76, 29);
+            this.BtnLeft.TabIndex = 17;
+            this.BtnLeft.Text = "LEFT";
+            this.BtnLeft.UseVisualStyleBackColor = false;
+            this.BtnLeft.Click += new System.EventHandler(this.BtnLeft_Click);
+            // 
+            // BtnRight
+            // 
+            this.BtnRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.BtnRight.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnRight.FlatAppearance.BorderSize = 0;
+            this.BtnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRight.ForeColor = System.Drawing.Color.White;
+            this.BtnRight.Location = new System.Drawing.Point(248, 51);
+            this.BtnRight.Name = "BtnRight";
+            this.BtnRight.Size = new System.Drawing.Size(76, 29);
+            this.BtnRight.TabIndex = 16;
+            this.BtnRight.Text = "RIGHT";
+            this.BtnRight.UseVisualStyleBackColor = false;
+            this.BtnRight.Click += new System.EventHandler(this.BtnRight_Click);
+            // 
+            // BtnDown
+            // 
+            this.BtnDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.BtnDown.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnDown.FlatAppearance.BorderSize = 0;
+            this.BtnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDown.ForeColor = System.Drawing.Color.White;
+            this.BtnDown.Location = new System.Drawing.Point(168, 65);
+            this.BtnDown.Name = "BtnDown";
+            this.BtnDown.Size = new System.Drawing.Size(76, 29);
+            this.BtnDown.TabIndex = 15;
+            this.BtnDown.Text = "DOWN";
+            this.BtnDown.UseVisualStyleBackColor = false;
+            this.BtnDown.Click += new System.EventHandler(this.BtnDown_Click);
+            // 
+            // BtnUp
+            // 
+            this.BtnUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.BtnUp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnUp.FlatAppearance.BorderSize = 0;
+            this.BtnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUp.ForeColor = System.Drawing.Color.White;
+            this.BtnUp.Location = new System.Drawing.Point(168, 30);
+            this.BtnUp.Name = "BtnUp";
+            this.BtnUp.Size = new System.Drawing.Size(76, 29);
+            this.BtnUp.TabIndex = 14;
+            this.BtnUp.Text = "UP";
+            this.BtnUp.UseVisualStyleBackColor = false;
+            this.BtnUp.Click += new System.EventHandler(this.BtnUp_Click);
+            // 
             // FormSimulationSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(431, 395);
+            this.ClientSize = new System.Drawing.Size(431, 509);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -344,8 +428,6 @@
             this.Controls.Add(this.groupBoolean);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(447, 436);
-            this.MinimumSize = new System.Drawing.Size(447, 436);
             this.Name = "FormSimulationSetting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulation Settings";
@@ -359,6 +441,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -379,12 +462,17 @@
         private GroupBox groupBox1;
         private ComboBox cmbCamera;
         private Label label1;
-        private Button BtnUpdateCamera;
         private Button BtnEndSession;
         private GroupBox groupBox2;
         private Label label3;
         private Button BtnStopRecord;
         private Button BtnStartRecord;
         private Label label4;
+        private Button BtnUpdateCamera;
+        private GroupBox groupBox3;
+        private Button BtnLeft;
+        private Button BtnRight;
+        private Button BtnDown;
+        private Button BtnUp;
     }
 }

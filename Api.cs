@@ -12,6 +12,11 @@ namespace TesiSoaClient
 {
     internal class Api
     {
+        public enum CameraMovement
+        {
+            UP, DOWN, LEFT, RIGHT
+        }
+
         #region Error messages
         private record class ApiErrorMessages
         {
@@ -458,6 +463,44 @@ namespace TesiSoaClient
 
                 string json = await resp.Content.ReadAsStringAsync();
                 retData = JsonConvert.DeserializeObject<ResponseData>(json);
+            }
+            catch (HttpRequestException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (InvalidOperationException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (TaskCanceledException error)
+            {
+                retData.message = error.Message;
+            }
+            catch (Exception error)
+            {
+                retData.message = error.Message;
+            }
+
+            return retData;
+        }
+
+        public static async Task<ResponseDataWithLPayload<SessionData>> MoveCamera(CameraMovement movement)
+        {
+            ResponseDataWithLPayload<SessionData> retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return retData;
+
+            try
+            {
+                HttpResponseMessage resp = await AppData.Instance.Client.PutAsync("camera?movement=" + movement.ToString(), null);
+
+                string json = await resp.Content.ReadAsStringAsync();
+                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
             }
             catch (HttpRequestException error)
             {
