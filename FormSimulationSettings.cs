@@ -65,6 +65,17 @@
             else this.Close();
         }
 
+        private async void HandleStartHandLog()
+        {
+
+            Api.ResponseData resp = await Api.StartHandLog();
+
+            if (!resp.result)
+            {
+                MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void GoToSettings()
         {
             var form = new FormOculusIp();
@@ -99,12 +110,12 @@
 
         private void FormSimulationSetting_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //HandleEndSession();
+            Api.EndSession();
         }
 
         private void BtnStartRecord_Click(object sender, EventArgs e)
         {
-            Api.StartHandLog();
+            HandleStartHandLog();
         }
 
         private void BtnStopRecord_Click(object sender, EventArgs e)

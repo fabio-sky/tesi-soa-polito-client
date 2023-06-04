@@ -332,9 +332,9 @@ namespace TesiSoaClient
             return retData;
         }
 
-        public static async Task<ResponseDataWithLPayload<SessionData>> StartHandLog()
+        public static async Task<ResponseData> StartHandLog()
         {
-            ResponseDataWithLPayload<SessionData> retData = new()
+            ResponseData retData = new()
             {
                 result = false,
                 message = ApiErrorMessages.IP_NOT_SET
@@ -348,7 +348,7 @@ namespace TesiSoaClient
                 HttpResponseMessage resp = await AppData.Instance.Client.PutAsync("log/hand/start", null);
 
                 string json = await resp.Content.ReadAsStringAsync();
-                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
             }
             catch (HttpRequestException error)
             {
@@ -370,9 +370,9 @@ namespace TesiSoaClient
             return retData;
         }
 
-        public static async Task<ResponseDataWithLPayload<SessionData>> StopHandLog()
+        public static async Task<ResponseData> StopHandLog()
         {
-            ResponseDataWithLPayload<SessionData> retData = new()
+            ResponseData retData = new()
             {
                 result = false,
                 message = ApiErrorMessages.IP_NOT_SET
@@ -386,7 +386,7 @@ namespace TesiSoaClient
                 HttpResponseMessage resp = await AppData.Instance.Client.PutAsync("log/hand/stop", null);
 
                 string json = await resp.Content.ReadAsStringAsync();
-                retData = JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(json);
+                retData = JsonConvert.DeserializeObject<ResponseData>(json);
             }
             catch (HttpRequestException error)
             {
