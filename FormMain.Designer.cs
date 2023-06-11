@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
+            this.LblDate = new System.Windows.Forms.Label();
             this.BtnSettings = new System.Windows.Forms.Button();
             this.BtnNewSession = new System.Windows.Forms.Button();
             this.BtnSync = new System.Windows.Forms.Button();
@@ -46,35 +45,23 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Controls.Add(this.LblDate);
             this.panel1.Controls.Add(this.BtnSettings);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(752, 55);
             this.panel1.TabIndex = 11;
             // 
-            // lblDate
+            // LblDate
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDate.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblDate.Location = new System.Drawing.Point(12, 9);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(120, 17);
-            this.lblDate.TabIndex = 2;
-            this.lblDate.Text = "Venerdì 12 Maggio";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTime.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTime.Location = new System.Drawing.Point(12, 26);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(39, 17);
-            this.lblTime.TabIndex = 6;
-            this.lblTime.Text = "10:37";
+            this.LblDate.AutoSize = true;
+            this.LblDate.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblDate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LblDate.Location = new System.Drawing.Point(12, 16);
+            this.LblDate.Name = "LblDate";
+            this.LblDate.Size = new System.Drawing.Size(120, 17);
+            this.LblDate.TabIndex = 2;
+            this.LblDate.Text = "Venerdì 12 Maggio";
             // 
             // BtnSettings
             // 
@@ -169,8 +156,7 @@
         #endregion
 
         private Panel panel1;
-        private Label lblDate;
-        private Label lblTime;
+        private Label LblDate;
         private Button BtnSettings;
         private Button BtnNewSession;
         private Button BtnSync;

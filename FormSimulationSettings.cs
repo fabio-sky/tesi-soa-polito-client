@@ -74,6 +74,19 @@
             {
                 MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else MessageBox.Show("Logging started", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void HandleStopHandLog()
+        {
+
+            Api.ResponseData resp = await Api.StopHandLog();
+
+            if (!resp.result)
+            {
+                MessageBox.Show(resp.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Logging stopped", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void GoToSettings()
@@ -120,7 +133,7 @@
 
         private void BtnStopRecord_Click(object sender, EventArgs e)
         {
-            Api.StopHandLog();
+            HandleStopHandLog();
         }
 
         private void BtnRight_Click(object sender, EventArgs e)

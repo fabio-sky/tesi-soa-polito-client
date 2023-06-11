@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace TesiSoaClient
         {
             InitializeComponent();
 
-            
+            LblDate.Text = DateTime.Now.ToString("D");
         }
 
         private async void GetSessions()
@@ -50,6 +51,16 @@ namespace TesiSoaClient
             }
         }
 
+        private IPAddress? FindIpAddress() {
+
+            IPAddress[] localIPs = Dns.GetHostAddresses(System.Environment.MachineName);
+
+            string[] dividedOculusIp = AppData.Instance.OculusIpAddress.Split('.');
+
+            return localIPs.FirstOrDefault((v) => v.MapToIPv4().ToString().StartsWith(string.Concat(dividedOculusIp[0], ".", dividedOculusIp[1], ".", dividedOculusIp[2])));
+
+        }
+
         private void HandleDownloadSession(string id)
         {
 
@@ -64,11 +75,17 @@ namespace TesiSoaClient
                 {
 
                     string selectedPath = folderBrowser.SelectedPath;
+                    IPAddress? relevantIp = FindIpAddress();
 
-                    Api.GetSessionLogs(id);
+                    if (relevantIp == null) {
+                        MessageBox.Show("No IP found");
+                        return;
+                    };
+
+                    Api.GetSessionLogs(id, relevantIp.MapToIPv4().ToString());
 
                     //Listen for file dimension
-                    TcpListener listenerInfo = new(5050);
+                    TcpListener listenerInfo = new(relevantIp, 5050);
                     listenerInfo.Server.ReceiveTimeout = 5000;
                     listenerInfo.Start();
 
@@ -83,7 +100,7 @@ namespace TesiSoaClient
                     client.Close();
 
                     //Listen for file data
-                    TcpListener listenerFile = new(5055);
+                    TcpListener listenerFile = new(relevantIp, 5055);
                     listenerFile.Server.ReceiveTimeout = 5000;
                     listenerFile.Start();
 

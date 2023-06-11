@@ -78,7 +78,7 @@ namespace TesiSoaClient
 
             _httpClient = new HttpClient
             {
-                Timeout = TimeSpan.FromSeconds(5),
+                //Timeout = TimeSpan.FromSeconds(10),
                 BaseAddress = new Uri("http://" + _oculusIpAddress + ":" + PORT)
             };
             _httpClient.DefaultRequestHeaders.Accept.Clear();

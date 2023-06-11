@@ -446,7 +446,7 @@ namespace TesiSoaClient
             return retData;
         }
 
-        public static async Task<ResponseData> GetSessionLogs(string sessionId)
+        public static async Task<ResponseData> GetSessionLogs(string sessionId, string ip)
         {
             ResponseData retData = new()
             {
@@ -459,7 +459,7 @@ namespace TesiSoaClient
 
             try
             {
-                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("session/log?sessionId=" + sessionId + "&sendTo=" + System.Environment.MachineName);
+                HttpResponseMessage resp = await AppData.Instance.Client.GetAsync("session/log?sessionId=" + sessionId + "&sendTo=" + ip);
 
                 string json = await resp.Content.ReadAsStringAsync();
                 retData = JsonConvert.DeserializeObject<ResponseData>(json);
