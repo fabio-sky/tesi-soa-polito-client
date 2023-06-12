@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,13 +52,63 @@ namespace TesiSoaClient
             }
         }
 
-        private IPAddress? FindIpAddress() {
+        private IPAddress? FindIpAddress()
+        {
 
-            IPAddress[] localIPs = Dns.GetHostAddresses(System.Environment.MachineName);
+            IPAddress oculusIp = IPAddress.Parse(AppData.Instance.OculusIpAddress);
+            byte[] oculus = oculusIp.GetAddressBytes();
+
+            IPAddress? retValue = null;
+
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                foreach (UnicastIPAddressInformation unicastIPAddressInformation in adapter.GetIPProperties().UnicastAddresses)
+                {
+                    if (unicastIPAddressInformation.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        byte[] mask = unicastIPAddressInformation.IPv4Mask.GetAddressBytes();
+                        byte[] pc = unicastIPAddressInformation.Address.GetAddressBytes();
+                        bool sameNet = true;
+
+                        if(mask != null)
+                        {
+                            int[] oculusMask = new int[mask.Length];
+                            int[] pcMask = new int[mask.Length];
+
+                            for (int i = 0; i < mask.Length; i++)
+                            {
+                                oculusMask[i] = oculus[i] & mask[i];
+                                pcMask[i] = pc[i] & mask[i];
+
+                                if (oculusMask[i] != pcMask[i]) sameNet= false;
+                                
+                            }
+                        }
+                        else sameNet = false;
+
+                        if (sameNet)
+                        {
+                            retValue = unicastIPAddressInformation.Address;
+                        }
+
+                       
+                    }
+                }
+            }
+
+            /*IPAddress[] localIPs = Dns.GetHostAddresses(System.Environment.MachineName);
+
+
+
 
             string[] dividedOculusIp = AppData.Instance.OculusIpAddress.Split('.');
 
-            return localIPs.FirstOrDefault((v) => v.MapToIPv4().ToString().StartsWith(string.Concat(dividedOculusIp[0], ".", dividedOculusIp[1], ".", dividedOculusIp[2])));
+            return localIPs.FirstOrDefault((v) =>
+            {
+                return v.MapToIPv4().ToString().StartsWith(string.Concat(dividedOculusIp[0], ".", dividedOculusIp[1], ".", dividedOculusIp[2]));
+            });*/
+
+            return retValue;
 
         }
 
@@ -75,17 +126,19 @@ namespace TesiSoaClient
                 {
 
                     string selectedPath = folderBrowser.SelectedPath;
-                    IPAddress? relevantIp = FindIpAddress();
+                    IPAddress? pcIp = FindIpAddress();
 
-                    if (relevantIp == null) {
+                    if (pcIp == null) {
                         MessageBox.Show("No IP found");
                         return;
                     };
 
-                    Api.GetSessionLogs(id, relevantIp.MapToIPv4().ToString());
+                    MessageBox.Show(pcIp.MapToIPv4().ToString());
+
+                    Api.GetSessionLogs(id, pcIp.MapToIPv4().ToString());
 
                     //Listen for file dimension
-                    TcpListener listenerInfo = new(relevantIp, 5050);
+                    TcpListener listenerInfo = new(pcIp, 5050);
                     listenerInfo.Server.ReceiveTimeout = 5000;
                     listenerInfo.Start();
 
@@ -100,7 +153,7 @@ namespace TesiSoaClient
                     client.Close();
 
                     //Listen for file data
-                    TcpListener listenerFile = new(relevantIp, 5055);
+                    TcpListener listenerFile = new(pcIp, 5055);
                     listenerFile.Server.ReceiveTimeout = 5000;
                     listenerFile.Start();
 

@@ -87,12 +87,10 @@
             this.chkListBoolParams.FormattingEnabled = true;
             this.chkListBoolParams.Items.AddRange(new object[] {
             "Local Mirror",
-            "Rotation Mirror",
-            "Character Mirror",
-            "Third Person View"});
-            this.chkListBoolParams.Location = new System.Drawing.Point(16, 24);
+            "Character Mirror"});
+            this.chkListBoolParams.Location = new System.Drawing.Point(16, 31);
             this.chkListBoolParams.Name = "chkListBoolParams";
-            this.chkListBoolParams.Size = new System.Drawing.Size(174, 80);
+            this.chkListBoolParams.Size = new System.Drawing.Size(174, 60);
             this.chkListBoolParams.TabIndex = 1;
             // 
             // LblSessionId
@@ -113,7 +111,7 @@
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Segoe MDL2 Assets", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSettings.Location = new System.Drawing.Point(251, 5);
+            this.btnSettings.Location = new System.Drawing.Point(376, 5);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(45, 42);
             this.btnSettings.TabIndex = 3;
@@ -218,7 +216,7 @@
             this.BtnEndSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEndSession.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnEndSession.ForeColor = System.Drawing.Color.IndianRed;
-            this.BtnEndSession.Location = new System.Drawing.Point(306, 10);
+            this.BtnEndSession.Location = new System.Drawing.Point(254, 11);
             this.BtnEndSession.Name = "BtnEndSession";
             this.BtnEndSession.Size = new System.Drawing.Size(115, 31);
             this.BtnEndSession.TabIndex = 13;

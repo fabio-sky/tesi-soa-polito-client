@@ -16,7 +16,7 @@
         {
             CheckedListBox.CheckedItemCollection items = chkListBoolParams.CheckedItems;
 
-            Api.UpdateBooleanData data = new() { characterMirror = items.Contains("Character Mirror"), localMirror = items.Contains("Local Mirror"), rotationMirror = items.Contains("Rotation Mirror") };
+            Api.UpdateBooleanData data = new() { characterMirror = items.Contains("Character Mirror"), localMirror = items.Contains("Local Mirror")/*, rotationMirror = items.Contains("Rotation Mirror")*/ };
 
             Api.ResponseData resp = await Api.SetBooleans(data);
 
@@ -91,7 +91,7 @@
 
         private void GoToSettings()
         {
-            var form = new FormOculusIp();
+            var form = new Settings();
             form.ShowDialog();
         }
 
