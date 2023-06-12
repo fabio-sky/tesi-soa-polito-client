@@ -133,8 +133,6 @@ namespace TesiSoaClient
                         return;
                     };
 
-                    MessageBox.Show(pcIp.MapToIPv4().ToString());
-
                     Api.GetSessionLogs(id, pcIp.MapToIPv4().ToString());
 
                     //Listen for file dimension
