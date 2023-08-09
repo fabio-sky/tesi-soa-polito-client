@@ -58,21 +58,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAFhJREFUSEvt
-        kEsKACAIRL2v91/XZooK7WsQ5INZCPMByXFsYeYwK0TWkIo0IfIb0is0IZIzOPuUBSMhsjaww1sDySwJ
-        luk3wl4jGZNgORvYwbywxQec2xBFC6DTgZPD+uMAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="BtnCleanup.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHRJREFUSEvt
-        jjEOwCAMA/lqx/7/AXRxhhoHF6ZU4iQPxk5CO9Sk31dXQryHWjgTxr6jlsyEsWKonyqhPu2j8kYVlVDf
-        PwA74HJLuQPhWYhHXIHz8CzEI65gFzjKHQjP7ymuyHl4fk/hgUyor6OWKaF++AWtPRiqelBHXoptAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABjPgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAPipJ

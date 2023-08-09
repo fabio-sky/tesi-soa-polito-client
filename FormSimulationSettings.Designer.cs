@@ -149,7 +149,7 @@
             this.txtDelay.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtDelay.Location = new System.Drawing.Point(26, 59);
             this.txtDelay.Maximum = new decimal(new int[] {
-            10,
+            1000,
             0,
             0,
             0});

@@ -199,7 +199,7 @@ namespace TesiSoaClient
         /// </summary>
         private void FormOculusIp_Closed(object? sender, FormClosedEventArgs e)
         {
-            GetSessions();
+            //GetSessions();
         }
 
         /// <summary>

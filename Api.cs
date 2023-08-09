@@ -74,6 +74,15 @@ namespace TesiSoaClient
             public int value;
         }
 
+        public struct BlockData
+        {
+            public string id;
+            public int numberOfTry;
+            public int restTime;
+            public int delay;
+            public string target;
+        }
+
         #endregion
 
         #region Methodes to send requests
