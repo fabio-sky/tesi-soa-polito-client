@@ -26,7 +26,7 @@ namespace TesiSoaClient
             //LoadDatBlockInList();
         }
 
-        private async void HandleCreateNewSession()
+        private void HandleCreateNewSession()
         {
             SessionInfo session = new()
             {
@@ -36,7 +36,7 @@ namespace TesiSoaClient
             };
 
             AppData.Instance.ActualSession = session;
-            Api.ResponseData resp = await Api.SetSession(session);
+            Api.ResponseData resp = Api.SetSession(session);
 
             if (resp.result)
             {

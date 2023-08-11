@@ -23,9 +23,9 @@ namespace TesiSoaClient
             LblDate.Text = DateTime.Now.ToString("D");
         }
 
-        private async void GetSessions()
+        private void GetSessions()
         {
-            Api.ResponseDataWithLPayload<Api.SessionData> response = await Api.GetSession();
+            Api.ResponseDataWithLPayload<Api.SessionData> response = Api.GetSessionsList();
 
             if (!response.result)
             {
@@ -133,7 +133,7 @@ namespace TesiSoaClient
                         return;
                     };
 
-                    Api.GetSessionLogs(id, pcIp.MapToIPv4().ToString());
+                    Api.DownloadSession(new() { sendTo = pcIp.MapToIPv4().ToString(), sessionId = id });
 
                     //Listen for file dimension
                     TcpListener listenerInfo = new(pcIp, 5050);
@@ -181,9 +181,9 @@ namespace TesiSoaClient
 
         }
 
-        private async void HandleDeleteSession(string id)
+        private void HandleDeleteSession(string id)
         {
-            Api.ResponseData resp = await Api.DeleteSession(id);
+            Api.ResponseData resp = Api.DeleteSession(new() { value = id });
 
             if(!resp.result)
             {
@@ -199,7 +199,7 @@ namespace TesiSoaClient
         /// </summary>
         private void FormOculusIp_Closed(object? sender, FormClosedEventArgs e)
         {
-            //GetSessions();
+            GetSessions();
         }
 
         /// <summary>
@@ -209,8 +209,11 @@ namespace TesiSoaClient
         {
             if(AppData.Instance.ActualSession != null)
             {
-                FormSimulationSetting frmSimSettings = new();
-                frmSimSettings.ShowDialog();
+                //FormSimulationSetting frmSimSettings = new();
+                //frmSimSettings.ShowDialog();
+
+                FrmManageSimulation frmManageSim = new();
+                frmManageSim.ShowDialog();
             }
            
         }

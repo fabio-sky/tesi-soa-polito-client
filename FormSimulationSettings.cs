@@ -138,22 +138,22 @@
 
         private void BtnRight_Click(object sender, EventArgs e)
         {
-            Api.MoveCamera(Api.CameraMovement.RIGHT);
+            //Api.MoveCamera(Api.CameraMovement.RIGHT);
         }
 
         private void BtnUp_Click(object sender, EventArgs e)
         {
-            Api.MoveCamera(Api.CameraMovement.UP);
+            //Api.MoveCamera(Api.CameraMovement.UP);
         }
 
         private void BtnLeft_Click(object sender, EventArgs e)
         {
-            Api.MoveCamera(Api.CameraMovement.LEFT);
+            //Api.MoveCamera(Api.CameraMovement.LEFT);
         }
 
         private void BtnDown_Click(object sender, EventArgs e)
         {
-            Api.MoveCamera(Api.CameraMovement.DOWN);
+            //Api.MoveCamera(Api.CameraMovement.DOWN);
         }
     }
 }

@@ -3,7 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -12,9 +15,27 @@ namespace TesiSoaClient
 {
     internal class Api
     {
+
+        const string ACTION_DELIMITER = "##";
+
         public enum CameraMovement
         {
             UP, DOWN, LEFT, RIGHT
+        }
+
+        enum ActionCode
+        {
+            TEST_CONNECTION,
+            START_SESSION,
+            FORCE_END_SESSION, 
+            GET_SESSIONS_LIST,
+
+            DELETE_SESSION,
+            DOWNLOAD_SESSION,
+
+            BUTTON_POSITION,
+            TABLE_DIMENSIONS,
+            CAMERA_USER_POSITION
         }
 
         #region Error messages
@@ -58,6 +79,11 @@ namespace TesiSoaClient
             public bool rotationMirror;
         }
 
+        public struct UpdateStringProp
+        {
+            public string value;
+        }
+
         public struct UpdateCameraViewData
         {
             public string camera;
@@ -74,6 +100,24 @@ namespace TesiSoaClient
             public int value;
         }
 
+        public struct UpdateButtonPositionData
+        {
+            public int horizontal;
+            public int vertical;
+        }
+
+        public struct UpdateTableDimensionData
+        {
+            public int height;
+            public int width;
+            public int depth;
+        }
+
+        public struct UpdateCameraPositionData
+        {
+            public CameraMovement direction;
+        }
+
         public struct BlockData
         {
             public string id;
@@ -83,10 +127,173 @@ namespace TesiSoaClient
             public string target;
         }
 
+        public struct DownloadSessionProp
+        {
+            public string sessionId;
+            public string sendTo;
+        }
+
         #endregion
 
+        private static string CombineMessage(ActionCode action, string json)
+        {
+            return string.Join(ACTION_DELIMITER, action.ToString(), json);
+        }
+
+        private static string SendRequest(string message, bool ignoreResponse = false)
+        {
+
+            ResponseData retData = new()
+            {
+                result = false,
+                message = ApiErrorMessages.IP_NOT_SET
+            };
+
+            if (AppData.Instance.CheckOculusIpAddressIsSet() == false) return JsonConvert.SerializeObject(retData);
+
+            IPAddress? vrIp = IPAddress.Parse(AppData.Instance.OculusIpAddress);
+
+
+            if (vrIp == null)
+            {
+                return JsonConvert.SerializeObject(retData); ; ;
+            }
+
+            IPEndPoint vrEndPoint = new(vrIp, Convert.ToInt32(AppData.PORT));
+            Socket sender = new(vrIp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+            try
+            {
+                sender.Connect(vrEndPoint);
+
+
+                byte[] messageSent = Encoding.ASCII.GetBytes(message + "<EOF>");
+                int byteSent = sender.Send(messageSent);
+
+                if (ignoreResponse)
+                {
+                    sender.Shutdown(SocketShutdown.Both);
+                    sender.Close();
+                    return "";
+                }
+
+                // Data buffer
+                byte[] messageReceived = new byte[1024];
+                string data = null;
+
+                // We receive the message using
+                // the method Receive(). This
+                // method returns number of bytes
+                // received, that we'll use to
+                // convert them to string
+
+
+                while (true)
+                {
+                    int byteRecv = sender.Receive(messageReceived);
+                    data += Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
+
+                    if (data.IndexOf("<EOF>") > -1)
+                        break;
+                }
+
+                
+               
+                // Close Socket using
+                // the method Close()
+                sender.Shutdown(SocketShutdown.Both);
+                sender.Close();
+
+                string json = data.Replace("<EOF>", "");
+
+                //retData = JsonConvert.DeserializeObject<ResponseData>(json);
+
+                return json;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                retData.result = false;
+                retData.message = "ERR: " + e.Message;
+
+                return JsonConvert.SerializeObject(retData); ;
+            }
+        }
+
+
         #region Methodes to send requests
-        public static async Task<ResponseData> TestConnection()
+
+        public static ResponseData TestConnection()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.TEST_CONNECTION, ""));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+
+
+        public static ResponseData SetSession(SessionInfo data)
+        {
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.START_SESSION, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData ForceEndSession()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.FORCE_END_SESSION, ""));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData SetButtonPosition(UpdateButtonPositionData data)
+        {
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.BUTTON_POSITION, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData SetTableDimensions(UpdateTableDimensionData data)
+        {
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.TABLE_DIMENSIONS, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData SetUserCameraPosition(CameraMovement direction)
+        {
+            UpdateCameraPositionData data = new() { direction = direction };
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.CAMERA_USER_POSITION, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseDataWithLPayload<SessionData> GetSessionsList()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.GET_SESSIONS_LIST, ""));
+            //return new() { data = Array.Empty<SessionData>() };
+            return JsonConvert.DeserializeObject<ResponseDataWithLPayload<SessionData>>(responseJson);
+        }
+
+        public static ResponseData DeleteSession(UpdateStringProp data)
+        {
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.DELETE_SESSION, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static void DownloadSession(DownloadSessionProp data)
+        {
+            string json = JsonConvert.SerializeObject(data);
+            SendRequest(CombineMessage(ActionCode.DOWNLOAD_SESSION, json), true);
+           // return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+
+
+        // ########################## DEPRECATED METHODS ##############################
+
+        [Obsolete("TestConnectionOld is deprecated, please use Method2 instead.", true)]
+        public static async Task<ResponseData> TestConnectionOld()
         {
             ResponseData retData = new()
             {
@@ -121,6 +328,7 @@ namespace TesiSoaClient
             return retData;
         }
 
+        
         public static async Task<ResponseData> SetDelay(int delay)
         {
             ResponseData retData = new()
@@ -238,7 +446,7 @@ namespace TesiSoaClient
             return retData;
         }
 
-        public static async Task<ResponseData> SetSession(SessionInfo data)
+        public static async Task<ResponseData> SetSessionOld(SessionInfo data)
         {
             ResponseData retData = new()
             {
@@ -428,7 +636,7 @@ namespace TesiSoaClient
             return retData;
         }
 
-        public static async Task<ResponseData> DeleteSession(string sessionId)
+        public static async Task<ResponseData> DeleteSessionOld(string sessionId)
         {
             ResponseData retData = new()
             {
@@ -504,6 +712,7 @@ namespace TesiSoaClient
             return retData;
         }
 
+        [Obsolete("TestConnectionOld is deprecated, please use Method2 instead.", true)]
         public static async Task<ResponseDataWithLPayload<SessionData>> MoveCamera(CameraMovement movement)
         {
             ResponseDataWithLPayload<SessionData> retData = new()
@@ -619,5 +828,8 @@ namespace TesiSoaClient
         }
 
         #endregion
+
+
+       
     }
 }

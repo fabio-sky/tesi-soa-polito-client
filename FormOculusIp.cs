@@ -71,11 +71,12 @@ namespace TesiSoaClient
 
             if (HandleUpdateIp())
             {
-                Api.ResponseData response = await Api.TestConnection();
+                Api.ResponseData response = Api.TestConnection();
 
                 if (response.result)
                 {
                     this.Close();
+                    MessageBox.Show(response.message);
                 }
                 else {
                     MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
