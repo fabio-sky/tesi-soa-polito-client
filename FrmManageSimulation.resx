@@ -61,14 +61,14 @@
   <data name="BtnLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAEJJREFUSEtjGAVDC2RnZ/8HYSiXugBmOE0sGTUcKxg+hpOKocbgBtg0kYKhxuAH
+        vQAADr0BR/uQrQAAAEJJREFUSEtjGAVDC2RnZ/8HYSiXugBmOE0sGTUcKxg+hpOKocbgBtg0kYKhxuAH
         ZGkiFYxaQhIYfpZAuaNgSAAGBgCG0b0BhB8YQwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="BtnRight.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAD9JREFUSEtjGAVDC2RnZ/8HYSiXugBm+KglRIERbgm6JlIx1BjcAJsmUjDUGOqA
+        vQAADr0BR/uQrQAAAD9JREFUSEtjGAVDC2RnZ/8HYSiXugBm+KglRIERbgm6JlIx1BjcAJsmUjDUGOqA
         UcOxglHD8QKaGj4KaAQYGAAWWb0Br8vjGwAAAABJRU5ErkJggg==
 </value>
   </data>
@@ -80,6 +80,48 @@
 </value>
   </data>
   <data name="BtnUp.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAGRJREFUSEvt
+        jdsKACAIQ/1f//+5CAwi5ro/BB4Qas5Ngr9Q1VTGvnep4U9K+vA6tj4DBbdjtj1QIBqzr4FC0LvVpvGO
+        vX+vU9gR09AOwswjHe0gnpGFTIczWMEVomDI/wXBA0Qyoo+9AaIRxAgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="BtnTableBackward.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAGhJREFUSEvt
+        jVEKwDAIQ72v9//eKFgQl7TdVj8KPgi0URMpzkJVryb77qcKppxTwEJGBcvFPQQdzHw0e+CX48HIQzMK
+        O2L/6C+BjtHbe6+JIUy2/g0U6GVr/0DBTTbeQ2p4JzW8SELkBvqMvQFf6wewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="BtnTableForward.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAGRJREFUSEvt
+        jdsKACAIQ/1f//+5CAwi5ro/BB4Qas5Ngr9Q1VTGvnep4U9K+vA6tj4DBbdjtj1QIBqzr4FC0LvVpvGO
+        vX+vU9gR09AOwswjHe0gnpGFTIczWMEVomDI/wXBA0Qyoo+9AaIRxAgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="BtnButtonLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAEJJREFUSEtjGAVDC2RnZ/8HYSiXugBmOE0sGTUcKxg+hpOKocbgBtg0kYKhxuAH
+        ZGkiFYxaQhIYfpZAuaNgSAAGBgCG0b0BhB8YQwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="BtnButtonRight.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAD9JREFUSEtjGAVDC2RnZ/8HYSiXugBm+KglRIERbgm6JlIx1BjcAJsmUjDUGOqA
+        UcOxglHD8QKaGj4KaAQYGAAWWb0Br8vjGwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="BtnButtonDown.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAGhJREFUSEvt
+        jVEKwDAIQ72v9//eKFgQl7TdVj8KPgi0URMpzkJVryb77qcKppxTwEJGBcvFPQQdzHw0e+CX48HIQzMK
+        O2L/6C+BjtHbe6+JIUy2/g0U6GVr/0DBTTbeQ2p4JzW8SELkBvqMvQFf6wewAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="BtnButtonUp.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAGRJREFUSEvt
         jdsKACAIQ/1f//+5CAwi5ro/BB4Qas5Ngr9Q1VTGvnep4U9K+vA6tj4DBbdjtj1QIBqzr4FC0LvVpvGO

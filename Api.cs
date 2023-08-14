@@ -23,6 +23,12 @@ namespace TesiSoaClient
             UP, DOWN, LEFT, RIGHT
         }
 
+        public enum TableMovement
+        {
+            FORWARD,
+            BACKWARD
+        }
+
         enum ActionCode
         {
             TEST_CONNECTION,
@@ -34,7 +40,9 @@ namespace TesiSoaClient
             DOWNLOAD_SESSION,
 
             BUTTON_POSITION,
+            MOVE_BUTTON,
             TABLE_DIMENSIONS,
+            TABLE_POSITION,
             CAMERA_USER_POSITION
         }
 
@@ -116,6 +124,11 @@ namespace TesiSoaClient
         public struct UpdateCameraPositionData
         {
             public CameraMovement direction;
+        }
+
+        public struct UpdateTablePositionData
+        {
+            public TableMovement direction;
         }
 
         public struct BlockData
@@ -252,10 +265,26 @@ namespace TesiSoaClient
             return JsonConvert.DeserializeObject<ResponseData>(responseJson);
         }
 
+        public static ResponseData UpdateButtonPosition(CameraMovement direction)
+        {
+            UpdateCameraPositionData data = new() { direction = direction };
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.MOVE_BUTTON, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
         public static ResponseData SetTableDimensions(UpdateTableDimensionData data)
         {
             string json = JsonConvert.SerializeObject(data);
             string responseJson = SendRequest(CombineMessage(ActionCode.TABLE_DIMENSIONS, json));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData SetTablePosition(TableMovement direction)
+        {
+            UpdateTablePositionData data = new() { direction = direction };
+            string json = JsonConvert.SerializeObject(data);
+            string responseJson = SendRequest(CombineMessage(ActionCode.TABLE_POSITION, json));
             return JsonConvert.DeserializeObject<ResponseData>(responseJson);
         }
 
@@ -266,6 +295,8 @@ namespace TesiSoaClient
             string responseJson = SendRequest(CombineMessage(ActionCode.CAMERA_USER_POSITION, json));
             return JsonConvert.DeserializeObject<ResponseData>(responseJson);
         }
+
+      
 
         public static ResponseDataWithLPayload<SessionData> GetSessionsList()
         {

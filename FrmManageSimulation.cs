@@ -71,5 +71,35 @@ namespace TesiSoaClient
         {
             Api.SetUserCameraPosition(Api.CameraMovement.LEFT);
         }
+
+        private void BtnTableForward_Click(object sender, EventArgs e)
+        {
+            Api.SetTablePosition(Api.TableMovement.FORWARD);
+        }
+
+        private void BtnTableBackward_Click(object sender, EventArgs e)
+        {
+            Api.SetTablePosition(Api.TableMovement.BACKWARD);
+        }
+
+        private void BtnButtonUp_Click(object sender, EventArgs e)
+        {
+            Api.UpdateButtonPosition(Api.CameraMovement.UP);
+        }
+
+        private void BtnButtonDown_Click(object sender, EventArgs e)
+        {
+            Api.UpdateButtonPosition(Api.CameraMovement.DOWN);
+        }
+
+        private void BtnButtonRight_Click(object sender, EventArgs e)
+        {
+            Api.UpdateButtonPosition(Api.CameraMovement.RIGHT);
+        }
+
+        private void BtnButtonLeft_Click(object sender, EventArgs e)
+        {
+            Api.UpdateButtonPosition(Api.CameraMovement.LEFT);
+        }
     }
 }

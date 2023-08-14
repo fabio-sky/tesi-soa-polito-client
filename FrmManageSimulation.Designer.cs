@@ -35,6 +35,10 @@
             this.BtnDown = new System.Windows.Forms.Button();
             this.BtnUp = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnTableBackward = new System.Windows.Forms.Button();
+            this.BtnTableForward = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.NumTableDepth = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +50,10 @@
             this.NumTableHeight = new System.Windows.Forms.NumericUpDown();
             this.BtnTable = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnButtonLeft = new System.Windows.Forms.Button();
+            this.BtnButtonRight = new System.Windows.Forms.Button();
+            this.BtnButtonDown = new System.Windows.Forms.Button();
+            this.BtnButtonUp = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.NumButtonVertPos = new System.Windows.Forms.NumericUpDown();
@@ -156,6 +164,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.BtnTableBackward);
+            this.groupBox1.Controls.Add(this.BtnTableForward);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.NumTableDepth);
@@ -168,10 +180,66 @@
             this.groupBox1.Controls.Add(this.BtnTable);
             this.groupBox1.Location = new System.Drawing.Point(12, 132);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(189, 179);
+            this.groupBox1.Size = new System.Drawing.Size(189, 275);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(85, 154);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 17);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "Forward";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(85, 194);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 17);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Backward";
+            // 
+            // BtnTableBackward
+            // 
+            this.BtnTableBackward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnTableBackward.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnTableBackward.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTableBackward.BackgroundImage")));
+            this.BtnTableBackward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnTableBackward.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnTableBackward.FlatAppearance.BorderSize = 0;
+            this.BtnTableBackward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTableBackward.ForeColor = System.Drawing.Color.White;
+            this.BtnTableBackward.Location = new System.Drawing.Point(39, 185);
+            this.BtnTableBackward.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnTableBackward.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnTableBackward.Name = "BtnTableBackward";
+            this.BtnTableBackward.Size = new System.Drawing.Size(34, 34);
+            this.BtnTableBackward.TabIndex = 29;
+            this.BtnTableBackward.UseVisualStyleBackColor = false;
+            this.BtnTableBackward.Click += new System.EventHandler(this.BtnTableBackward_Click);
+            // 
+            // BtnTableForward
+            // 
+            this.BtnTableForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnTableForward.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnTableForward.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTableForward.BackgroundImage")));
+            this.BtnTableForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnTableForward.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnTableForward.FlatAppearance.BorderSize = 0;
+            this.BtnTableForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTableForward.ForeColor = System.Drawing.Color.White;
+            this.BtnTableForward.Location = new System.Drawing.Point(39, 145);
+            this.BtnTableForward.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnTableForward.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnTableForward.Name = "BtnTableForward";
+            this.BtnTableForward.Size = new System.Drawing.Size(34, 34);
+            this.BtnTableForward.TabIndex = 28;
+            this.BtnTableForward.UseVisualStyleBackColor = false;
+            this.BtnTableForward.Click += new System.EventHandler(this.BtnTableForward_Click);
             // 
             // label3
             // 
@@ -295,7 +363,7 @@
             this.BtnTable.FlatAppearance.BorderSize = 0;
             this.BtnTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnTable.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnTable.Location = new System.Drawing.Point(23, 136);
+            this.BtnTable.Location = new System.Drawing.Point(22, 235);
             this.BtnTable.Name = "BtnTable";
             this.BtnTable.Size = new System.Drawing.Size(146, 29);
             this.BtnTable.TabIndex = 18;
@@ -305,6 +373,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BtnButtonLeft);
+            this.groupBox2.Controls.Add(this.BtnButtonRight);
+            this.groupBox2.Controls.Add(this.BtnButtonDown);
+            this.groupBox2.Controls.Add(this.BtnButtonUp);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.NumButtonVertPos);
@@ -315,15 +387,91 @@
             this.groupBox2.Controls.Add(this.BtnButtonPos);
             this.groupBox2.Location = new System.Drawing.Point(207, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(239, 299);
+            this.groupBox2.Size = new System.Drawing.Size(219, 395);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Button";
             // 
+            // BtnButtonLeft
+            // 
+            this.BtnButtonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnButtonLeft.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnButtonLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButtonLeft.BackgroundImage")));
+            this.BtnButtonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnButtonLeft.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnButtonLeft.FlatAppearance.BorderSize = 0;
+            this.BtnButtonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnButtonLeft.ForeColor = System.Drawing.Color.White;
+            this.BtnButtonLeft.Location = new System.Drawing.Point(55, 279);
+            this.BtnButtonLeft.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonLeft.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonLeft.Name = "BtnButtonLeft";
+            this.BtnButtonLeft.Size = new System.Drawing.Size(34, 34);
+            this.BtnButtonLeft.TabIndex = 35;
+            this.BtnButtonLeft.UseVisualStyleBackColor = false;
+            this.BtnButtonLeft.Click += new System.EventHandler(this.BtnButtonLeft_Click);
+            // 
+            // BtnButtonRight
+            // 
+            this.BtnButtonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnButtonRight.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnButtonRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButtonRight.BackgroundImage")));
+            this.BtnButtonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnButtonRight.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnButtonRight.FlatAppearance.BorderSize = 0;
+            this.BtnButtonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnButtonRight.ForeColor = System.Drawing.Color.White;
+            this.BtnButtonRight.Location = new System.Drawing.Point(135, 279);
+            this.BtnButtonRight.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonRight.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonRight.Name = "BtnButtonRight";
+            this.BtnButtonRight.Size = new System.Drawing.Size(34, 34);
+            this.BtnButtonRight.TabIndex = 34;
+            this.BtnButtonRight.UseVisualStyleBackColor = false;
+            this.BtnButtonRight.Click += new System.EventHandler(this.BtnButtonRight_Click);
+            // 
+            // BtnButtonDown
+            // 
+            this.BtnButtonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnButtonDown.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnButtonDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButtonDown.BackgroundImage")));
+            this.BtnButtonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnButtonDown.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnButtonDown.FlatAppearance.BorderSize = 0;
+            this.BtnButtonDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnButtonDown.ForeColor = System.Drawing.Color.White;
+            this.BtnButtonDown.Location = new System.Drawing.Point(95, 279);
+            this.BtnButtonDown.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonDown.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonDown.Name = "BtnButtonDown";
+            this.BtnButtonDown.Size = new System.Drawing.Size(34, 34);
+            this.BtnButtonDown.TabIndex = 33;
+            this.BtnButtonDown.UseVisualStyleBackColor = false;
+            this.BtnButtonDown.Click += new System.EventHandler(this.BtnButtonDown_Click);
+            // 
+            // BtnButtonUp
+            // 
+            this.BtnButtonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnButtonUp.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnButtonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButtonUp.BackgroundImage")));
+            this.BtnButtonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnButtonUp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnButtonUp.FlatAppearance.BorderSize = 0;
+            this.BtnButtonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnButtonUp.ForeColor = System.Drawing.Color.White;
+            this.BtnButtonUp.Location = new System.Drawing.Point(95, 239);
+            this.BtnButtonUp.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonUp.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnButtonUp.Name = "BtnButtonUp";
+            this.BtnButtonUp.Size = new System.Drawing.Size(34, 34);
+            this.BtnButtonUp.TabIndex = 32;
+            this.BtnButtonUp.UseVisualStyleBackColor = false;
+            this.BtnButtonUp.Click += new System.EventHandler(this.BtnButtonUp_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(158, 204);
+            this.label5.Location = new System.Drawing.Point(165, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 17);
             this.label5.TabIndex = 31;
@@ -332,7 +480,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 175);
+            this.label6.Location = new System.Drawing.Point(20, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 17);
             this.label6.TabIndex = 30;
@@ -340,7 +488,7 @@
             // 
             // NumButtonVertPos
             // 
-            this.NumButtonVertPos.Location = new System.Drawing.Point(74, 202);
+            this.NumButtonVertPos.Location = new System.Drawing.Point(81, 178);
             this.NumButtonVertPos.Maximum = new decimal(new int[] {
             200,
             0,
@@ -355,14 +503,14 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label13.Location = new System.Drawing.Point(13, 25);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(220, 59);
+            this.label13.Size = new System.Drawing.Size(186, 55);
             this.label13.TabIndex = 28;
             this.label13.Text = "Position of the button with respect the BOTTOM - LEFT corner of the table";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(158, 127);
+            this.label11.Location = new System.Drawing.Point(165, 122);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(25, 17);
             this.label11.TabIndex = 21;
@@ -371,7 +519,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 98);
+            this.label12.Location = new System.Drawing.Point(20, 93);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 17);
             this.label12.TabIndex = 20;
@@ -379,7 +527,7 @@
             // 
             // NumButtonHorPos
             // 
-            this.NumButtonHorPos.Location = new System.Drawing.Point(74, 125);
+            this.NumButtonHorPos.Location = new System.Drawing.Point(81, 120);
             this.NumButtonHorPos.Maximum = new decimal(new int[] {
             200,
             0,
@@ -396,7 +544,7 @@
             this.BtnButtonPos.FlatAppearance.BorderSize = 0;
             this.BtnButtonPos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnButtonPos.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnButtonPos.Location = new System.Drawing.Point(52, 256);
+            this.BtnButtonPos.Location = new System.Drawing.Point(34, 355);
             this.BtnButtonPos.Name = "BtnButtonPos";
             this.BtnButtonPos.Size = new System.Drawing.Size(146, 29);
             this.BtnButtonPos.TabIndex = 18;
@@ -407,15 +555,15 @@
             // BtnEndSession
             // 
             this.BtnEndSession.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.BtnEndSession.BackColor = System.Drawing.Color.White;
+            this.BtnEndSession.BackColor = System.Drawing.Color.IndianRed;
             this.BtnEndSession.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
             this.BtnEndSession.FlatAppearance.BorderSize = 0;
             this.BtnEndSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEndSession.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnEndSession.ForeColor = System.Drawing.Color.IndianRed;
-            this.BtnEndSession.Location = new System.Drawing.Point(172, 326);
+            this.BtnEndSession.ForeColor = System.Drawing.Color.White;
+            this.BtnEndSession.Location = new System.Drawing.Point(135, 424);
             this.BtnEndSession.Name = "BtnEndSession";
-            this.BtnEndSession.Size = new System.Drawing.Size(115, 31);
+            this.BtnEndSession.Size = new System.Drawing.Size(155, 48);
             this.BtnEndSession.TabIndex = 29;
             this.BtnEndSession.Text = "END SESSION";
             this.BtnEndSession.UseVisualStyleBackColor = false;
@@ -425,7 +573,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 369);
+            this.ClientSize = new System.Drawing.Size(438, 491);
             this.Controls.Add(this.BtnEndSession);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -435,7 +583,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmManageSimulation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmManageSimulation";
+            this.Text = "Manage Simulation";
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -478,5 +626,13 @@
         private NumericUpDown NumButtonHorPos;
         private Button BtnButtonPos;
         private Button BtnEndSession;
+        private Button BtnTableBackward;
+        private Button BtnTableForward;
+        private Label label10;
+        private Label label9;
+        private Button BtnButtonLeft;
+        private Button BtnButtonRight;
+        private Button BtnButtonDown;
+        private Button BtnButtonUp;
     }
 }
