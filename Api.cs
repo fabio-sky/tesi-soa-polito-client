@@ -34,6 +34,7 @@ namespace TesiSoaClient
             TEST_CONNECTION,
             START_SESSION,
             FORCE_END_SESSION, 
+            ENABLE_SESSION,
             GET_SESSIONS_LIST,
 
             DELETE_SESSION,
@@ -317,6 +318,12 @@ namespace TesiSoaClient
             string json = JsonConvert.SerializeObject(data);
             SendRequest(CombineMessage(ActionCode.DOWNLOAD_SESSION, json), true);
            // return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData EnbleSession()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.ENABLE_SESSION, ""));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
         }
 
 

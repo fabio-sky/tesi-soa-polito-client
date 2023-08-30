@@ -37,6 +37,7 @@
             this.FlowLayoutSession = new System.Windows.Forms.FlowLayoutPanel();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.LblDownload = new System.Windows.Forms.Label();
+            this.BtnSetupRoom = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             this.BtnNewSession.FlatAppearance.BorderSize = 0;
             this.BtnNewSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNewSession.ForeColor = System.Drawing.Color.White;
-            this.BtnNewSession.Location = new System.Drawing.Point(12, 70);
+            this.BtnNewSession.Location = new System.Drawing.Point(53, 70);
             this.BtnNewSession.Name = "BtnNewSession";
             this.BtnNewSession.Size = new System.Drawing.Size(146, 34);
             this.BtnNewSession.TabIndex = 12;
@@ -99,7 +100,7 @@
             this.BtnSync.FlatAppearance.BorderSize = 0;
             this.BtnSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSync.ForeColor = System.Drawing.Color.White;
-            this.BtnSync.Location = new System.Drawing.Point(164, 70);
+            this.BtnSync.Location = new System.Drawing.Point(13, 70);
             this.BtnSync.Name = "BtnSync";
             this.BtnSync.Size = new System.Drawing.Size(34, 34);
             this.BtnSync.TabIndex = 13;
@@ -127,12 +128,27 @@
             this.LblDownload.Text = "Downloading session_!23123_DATA";
             this.LblDownload.Visible = false;
             // 
+            // BtnSetupRoom
+            // 
+            this.BtnSetupRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(99)))), ((int)(((byte)(129)))));
+            this.BtnSetupRoom.FlatAppearance.BorderSize = 0;
+            this.BtnSetupRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSetupRoom.ForeColor = System.Drawing.Color.White;
+            this.BtnSetupRoom.Location = new System.Drawing.Point(205, 70);
+            this.BtnSetupRoom.Name = "BtnSetupRoom";
+            this.BtnSetupRoom.Size = new System.Drawing.Size(146, 34);
+            this.BtnSetupRoom.TabIndex = 16;
+            this.BtnSetupRoom.Text = "SETUP ROOM";
+            this.BtnSetupRoom.UseVisualStyleBackColor = false;
+            this.BtnSetupRoom.Click += new System.EventHandler(this.BtnSetupRoom_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(755, 694);
+            this.Controls.Add(this.BtnSetupRoom);
             this.Controls.Add(this.LblDownload);
             this.Controls.Add(this.FlowLayoutSession);
             this.Controls.Add(this.BtnSync);
@@ -163,5 +179,6 @@
         private FlowLayoutPanel FlowLayoutSession;
         private FolderBrowserDialog folderBrowser;
         private Label LblDownload;
+        private Button BtnSetupRoom;
     }
 }

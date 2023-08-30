@@ -242,5 +242,11 @@ namespace TesiSoaClient
         {
             GetSessions();
         }
+
+        private void BtnSetupRoom_Click(object sender, EventArgs e)
+        {
+            Form formSetupRoom = new FormSetupRoom();
+            formSetupRoom.ShowDialog();
+        }
     }
 }
