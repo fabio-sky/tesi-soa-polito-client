@@ -44,7 +44,10 @@ namespace TesiSoaClient
             MOVE_BUTTON,
             TABLE_DIMENSIONS,
             TABLE_POSITION,
-            CAMERA_USER_POSITION
+            CAMERA_USER_POSITION,
+
+            BUTTON_PRESSED,
+            BUTTON_RELEASED
         }
 
         #region Error messages
@@ -241,6 +244,18 @@ namespace TesiSoaClient
         public static ResponseData TestConnection()
         {
             string responseJson = SendRequest(CombineMessage(ActionCode.TEST_CONNECTION, ""));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData ButtonPressed()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.BUTTON_PRESSED, ""));
+            return JsonConvert.DeserializeObject<ResponseData>(responseJson);
+        }
+
+        public static ResponseData ButtonReleased()
+        {
+            string responseJson = SendRequest(CombineMessage(ActionCode.BUTTON_RELEASED, ""));
             return JsonConvert.DeserializeObject<ResponseData>(responseJson);
         }
 
