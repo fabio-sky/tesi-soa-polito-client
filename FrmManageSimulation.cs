@@ -26,9 +26,9 @@ namespace TesiSoaClient
         {
             InitializeComponent();
 
-            buttonCheckTimer.Tick += ButtonCheckTimer_Tick;
-            buttonCheckTimer.Interval = 25;
-            buttonCheckTimer.Start();
+            //buttonCheckTimer.Tick += ButtonCheckTimer_Tick;
+            //buttonCheckTimer.Interval = 25;
+            //buttonCheckTimer.Start();
         }
 
 

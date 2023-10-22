@@ -40,6 +40,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.BtnCleanup = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnShuffle = new System.Windows.Forms.Button();
+            this.BtnSplit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,11 +181,51 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Session Blocks";
             // 
+            // BtnShuffle
+            // 
+            this.BtnShuffle.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnShuffle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnShuffle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnShuffle.BackgroundImage")));
+            this.BtnShuffle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnShuffle.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnShuffle.FlatAppearance.BorderSize = 0;
+            this.BtnShuffle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnShuffle.Location = new System.Drawing.Point(264, 258);
+            this.BtnShuffle.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnShuffle.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnShuffle.Name = "BtnShuffle";
+            this.BtnShuffle.Size = new System.Drawing.Size(34, 34);
+            this.BtnShuffle.TabIndex = 17;
+            this.BtnShuffle.UseVisualStyleBackColor = false;
+            this.BtnShuffle.Click += new System.EventHandler(this.BtnShuffle_Click);
+            // 
+            // BtnSplit
+            // 
+            this.BtnSplit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnSplit.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BtnSplit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnSplit.BackgroundImage")));
+            this.BtnSplit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BtnSplit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.BtnSplit.FlatAppearance.BorderSize = 0;
+            this.BtnSplit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSplit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BtnSplit.Location = new System.Drawing.Point(224, 258);
+            this.BtnSplit.MaximumSize = new System.Drawing.Size(34, 34);
+            this.BtnSplit.MinimumSize = new System.Drawing.Size(34, 34);
+            this.BtnSplit.Name = "BtnSplit";
+            this.BtnSplit.Size = new System.Drawing.Size(34, 34);
+            this.BtnSplit.TabIndex = 18;
+            this.BtnSplit.UseVisualStyleBackColor = false;
+            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
+            // 
             // FormNewSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 660);
+            this.Controls.Add(this.BtnSplit);
+            this.Controls.Add(this.BtnShuffle);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnCleanup);
@@ -219,5 +261,7 @@
         private Button button1;
         private Button BtnCleanup;
         private Label label3;
+        private Button BtnShuffle;
+        private Button BtnSplit;
     }
 }

@@ -76,7 +76,6 @@ namespace TesiSoaClient
                 if (response.result)
                 {
                     this.Close();
-                    MessageBox.Show(response.message);
                 }
                 else {
                     MessageBox.Show(response.message, "Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);

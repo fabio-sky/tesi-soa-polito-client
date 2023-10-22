@@ -96,18 +96,6 @@ namespace TesiSoaClient
                 }
             }
 
-            /*IPAddress[] localIPs = Dns.GetHostAddresses(System.Environment.MachineName);
-
-
-
-
-            string[] dividedOculusIp = AppData.Instance.OculusIpAddress.Split('.');
-
-            return localIPs.FirstOrDefault((v) =>
-            {
-                return v.MapToIPv4().ToString().StartsWith(string.Concat(dividedOculusIp[0], ".", dividedOculusIp[1], ".", dividedOculusIp[2]));
-            });*/
-
             return retValue;
 
         }
