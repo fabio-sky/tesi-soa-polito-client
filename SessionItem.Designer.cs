@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionItem));
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnDownload = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblID = new System.Windows.Forms.Label();
@@ -53,21 +52,6 @@
             this.BtnDelete.TabIndex = 14;
             this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // BtnDownload
-            // 
-            this.BtnDownload.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.BtnDownload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDownload.BackgroundImage")));
-            this.BtnDownload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BtnDownload.FlatAppearance.BorderSize = 0;
-            this.BtnDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDownload.ForeColor = System.Drawing.Color.White;
-            this.BtnDownload.Location = new System.Drawing.Point(602, 33);
-            this.BtnDownload.Name = "BtnDownload";
-            this.BtnDownload.Size = new System.Drawing.Size(34, 34);
-            this.BtnDownload.TabIndex = 15;
-            this.BtnDownload.UseVisualStyleBackColor = false;
-            this.BtnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
             // 
             // LblName
             // 
@@ -125,7 +109,6 @@
             this.Controls.Add(this.LblDescription);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LblName);
-            this.Controls.Add(this.BtnDownload);
             this.Controls.Add(this.BtnDelete);
             this.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.Name = "SessionItem";
@@ -139,7 +122,6 @@
         #endregion
 
         private Button BtnDelete;
-        private Button BtnDownload;
         private Label LblName;
         private Panel panel1;
         private Label LblDate;
