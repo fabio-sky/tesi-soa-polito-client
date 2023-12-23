@@ -33,13 +33,18 @@ namespace TesiSoaClient
             }
             else
             {
-                Api.BlockData data = new() { id = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_block", target = CmbSpawnMethod.Text, delay = Convert.ToInt32(NumDelay.Value), numberOfTry = Convert.ToInt32(NumTry.Value), restTime = Convert.ToInt32(NumRestTime.Value) };
+                Api.BlockData data = new() { id = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_block", target = CmbSpawnMethod.Text, delay = Convert.ToInt32(NumDelay.Value), numberOfTry = Convert.ToInt32(NumTry.Value), restTime = Convert.ToInt32(NumRestTime.Value), characterMirror = chkCharacterMirror.Checked, localMirror = chkLocalMirror.Checked, thirdPersonView = chkTPV.Checked };
 
                 FormNewSession.SessionsDataBlock.Add(data);
                 this.Close();
             }
 
             
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

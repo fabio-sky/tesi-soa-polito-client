@@ -40,6 +40,9 @@
             this.BtnAddBlock = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.chkLocalMirror = new System.Windows.Forms.CheckBox();
+            this.chkTPV = new System.Windows.Forms.CheckBox();
+            this.chkCharacterMirror = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumTry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumRestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumDelay)).BeginInit();
@@ -155,7 +158,7 @@
             this.BtnAddBlock.FlatAppearance.BorderSize = 0;
             this.BtnAddBlock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAddBlock.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnAddBlock.Location = new System.Drawing.Point(38, 243);
+            this.BtnAddBlock.Location = new System.Drawing.Point(35, 334);
             this.BtnAddBlock.MaximumSize = new System.Drawing.Size(146, 29);
             this.BtnAddBlock.MinimumSize = new System.Drawing.Size(146, 29);
             this.BtnAddBlock.Name = "BtnAddBlock";
@@ -186,11 +189,45 @@
             this.label6.Text = "milliseconds";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // chkLocalMirror
+            // 
+            this.chkLocalMirror.AutoSize = true;
+            this.chkLocalMirror.Location = new System.Drawing.Point(12, 242);
+            this.chkLocalMirror.Name = "chkLocalMirror";
+            this.chkLocalMirror.Size = new System.Drawing.Size(118, 21);
+            this.chkLocalMirror.TabIndex = 17;
+            this.chkLocalMirror.Text = "LOCAL MIRROR";
+            this.chkLocalMirror.UseVisualStyleBackColor = true;
+            this.chkLocalMirror.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // chkTPV
+            // 
+            this.chkTPV.AutoSize = true;
+            this.chkTPV.Location = new System.Drawing.Point(12, 292);
+            this.chkTPV.Name = "chkTPV";
+            this.chkTPV.Size = new System.Drawing.Size(150, 21);
+            this.chkTPV.TabIndex = 18;
+            this.chkTPV.Text = "THIRD PERSON VIEW";
+            this.chkTPV.UseVisualStyleBackColor = true;
+            // 
+            // chkCharacterMirror
+            // 
+            this.chkCharacterMirror.AutoSize = true;
+            this.chkCharacterMirror.Location = new System.Drawing.Point(12, 267);
+            this.chkCharacterMirror.Name = "chkCharacterMirror";
+            this.chkCharacterMirror.Size = new System.Drawing.Size(151, 21);
+            this.chkCharacterMirror.TabIndex = 19;
+            this.chkCharacterMirror.Text = "CHARACTER MIRROR";
+            this.chkCharacterMirror.UseVisualStyleBackColor = true;
+            // 
             // FrmNewBlock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(224, 285);
+            this.ClientSize = new System.Drawing.Size(224, 375);
+            this.Controls.Add(this.chkCharacterMirror);
+            this.Controls.Add(this.chkTPV);
+            this.Controls.Add(this.chkLocalMirror);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnAddBlock);
@@ -204,7 +241,6 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(240, 326);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(240, 326);
             this.Name = "FrmNewBlock";
@@ -230,5 +266,8 @@
         private Button BtnAddBlock;
         private Label label5;
         private Label label6;
+        private CheckBox chkLocalMirror;
+        private CheckBox chkTPV;
+        private CheckBox chkCharacterMirror;
     }
 }

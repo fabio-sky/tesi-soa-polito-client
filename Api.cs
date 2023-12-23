@@ -142,6 +142,9 @@ namespace TesiSoaClient
             public int restTime;
             public int delay;
             public string target;
+            public bool localMirror;
+            public bool characterMirror;
+            public bool thirdPersonView;
         }
 
         public struct DownloadSessionProp

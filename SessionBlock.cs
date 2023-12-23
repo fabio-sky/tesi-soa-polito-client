@@ -64,6 +64,27 @@ namespace TesiSoaClient
             set { _targetSpawn = value; LblSpawn.Text = "Target spawn: " + value; }
         }
 
+        private bool _charaterMirror;
+        public bool CharacterMirror
+        {
+            get { return _charaterMirror; }
+            set { _charaterMirror = value; LblCharacterMirror.Text = value ? "CHARACTER" : ""; }
+        }
+
+        private bool _localMirror;
+        public bool LocalMirror
+        {
+            get { return _localMirror; }
+            set { _localMirror = value; LblLocalMirror.Text = value ? "LOCAL" : ""; }
+        }
+
+        private bool _thirdPersonView;
+        public bool ThirdPersonView
+        {
+            get { return _thirdPersonView; }
+            set { _thirdPersonView = value; LblTpv.Text = value ? "TPV" : ""; }
+        }
+
         private Action<int> _btnDeleteOnPress;
 
         public Action<int> BtnDeleteOnPress

@@ -37,6 +37,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblBlockIndex = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LblTpv = new System.Windows.Forms.Label();
+            this.LblLocalMirror = new System.Windows.Forms.Label();
+            this.LblCharacterMirror = new System.Windows.Forms.Label();
             this.BtnUp = new System.Windows.Forms.Button();
             this.BtnDown = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -123,6 +126,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.LblTpv);
+            this.panel2.Controls.Add(this.LblLocalMirror);
+            this.panel2.Controls.Add(this.LblCharacterMirror);
             this.panel2.Controls.Add(this.BtnUp);
             this.panel2.Controls.Add(this.BtnDown);
             this.panel2.Controls.Add(this.LblTry);
@@ -135,6 +141,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(354, 107);
             this.panel2.TabIndex = 24;
+            // 
+            // LblTpv
+            // 
+            this.LblTpv.AutoSize = true;
+            this.LblTpv.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblTpv.Location = new System.Drawing.Point(317, 53);
+            this.LblTpv.Name = "LblTpv";
+            this.LblTpv.Size = new System.Drawing.Size(33, 17);
+            this.LblTpv.TabIndex = 28;
+            this.LblTpv.Text = "TPV";
+            // 
+            // LblLocalMirror
+            // 
+            this.LblLocalMirror.AutoSize = true;
+            this.LblLocalMirror.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblLocalMirror.Location = new System.Drawing.Point(251, 53);
+            this.LblLocalMirror.Name = "LblLocalMirror";
+            this.LblLocalMirror.Size = new System.Drawing.Size(53, 17);
+            this.LblLocalMirror.TabIndex = 27;
+            this.LblLocalMirror.Text = "LOCAL ";
+            // 
+            // LblCharacterMirror
+            // 
+            this.LblCharacterMirror.AutoSize = true;
+            this.LblCharacterMirror.Font = new System.Drawing.Font("Segoe UI", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblCharacterMirror.Location = new System.Drawing.Point(161, 53);
+            this.LblCharacterMirror.Name = "LblCharacterMirror";
+            this.LblCharacterMirror.Size = new System.Drawing.Size(83, 17);
+            this.LblCharacterMirror.TabIndex = 26;
+            this.LblCharacterMirror.Text = "CHARACTER";
             // 
             // BtnUp
             // 
@@ -195,5 +231,8 @@
         private Panel panel2;
         private Button BtnUp;
         private Button BtnDown;
+        private Label LblTpv;
+        private Label LblLocalMirror;
+        private Label LblCharacterMirror;
     }
 }

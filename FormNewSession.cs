@@ -73,8 +73,6 @@ namespace TesiSoaClient
         {
             FlowLayoutBlock.Controls.Clear();
 
-            //MessageBox.Show("LoadDatBlockInList");
-
             int count = 1;
 
             foreach (Api.BlockData block in SessionsDataBlock)
@@ -87,6 +85,9 @@ namespace TesiSoaClient
                     TargetSpawn = block.target,
                     BlockIndex = count,
                     BlockId = block.id,
+                    CharacterMirror = block.characterMirror,
+                    LocalMirror = block.localMirror,
+                    ThirdPersonView= block.thirdPersonView,
                     BtnDeleteOnPress = HandleDeleteBlock,
                     BtnMoveDownOnPress = HandleMoveDownBlock,
                     BtnMoveupOnPress = HandleMoveUpBlock
